@@ -1,0 +1,44 @@
+//
+//  GoodsCard.swift
+//  ShoppingCartUI-SwiftUI
+//
+//  Created by edy on 2023/7/5.
+//
+
+import SwiftUI
+
+struct GoodsCard: View {
+    var item: HomeItem
+    
+    var body: some View {
+        HStack {
+            Image(item.image)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: UIScreen.main.bounds.width / 3.2)
+            
+            VStack(alignment: .leading, spacing: 10) {
+                Text(item.title)
+                    .fontWeight(.heavy)
+                    .foregroundColor(.black)
+                
+                Text(item.subTitle)
+                    .font(.caption)
+                    .foregroundColor(.gray)
+                
+                Text(item.price)
+                    .fontWeight(.heavy)
+                    .foregroundColor(.black)
+            }
+            
+            Spacer(minLength: 0)
+        }
+        .padding()
+        .frame(width: UIScreen.main.bounds.width - 30)
+        .background(Color.white)
+        .cornerRadius(20)
+        .shadow(color: Color.black.opacity(0.08), radius: 5, x: 5, y: 5)
+        .shadow(color: Color.black.opacity(0.08), radius: 5, x: -5, y: -5)
+    }
+}
+
